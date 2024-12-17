@@ -1,9 +1,18 @@
 'use client'
 
-import { useState } from 'react'
+import { useState } from 'react';
+import axios from './utils/axios';
 
+export interface ContactForm {
+  name: string;
+  email: string;
+  company: string;
+  title: string;
+  purpose: string;
+  message: string;
+}
 export default function ContactForm() {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<ContactForm>({
     name: '',
     email: '',
     company: '',
@@ -17,9 +26,16 @@ export default function ContactForm() {
     setFormData(prevState => ({ ...prevState, [name]: value }))
   }
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    console.log('Form submitted:', formData)
+    try {
+      const res = await axios.post('/contact', formData);
+      if (res.status === 201)
+        alert(res.data.message);
+    } catch (error) {
+      console.error(error);
+      alert('An error occurred while submitting the form. Please try again later.');
+    }
     setFormData({ name: '', email: '', company: '', title: '', purpose: '', message: '' })
   }
 
@@ -123,4 +139,3 @@ export default function ContactForm() {
     </section>
   )
 }
-
