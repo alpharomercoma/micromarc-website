@@ -23,7 +23,8 @@ export default function Hero() {
                 Get Involved
               </Link>
               <Link
-                href="#research"
+                href="/approved-proposal.pdf"
+                target="_blank"
                 className="bg-white w-full sm:w-auto text-gray-900 py-2 px-6 rounded-full text-center text-lg font-semibold hover:bg-gray-100 transition duration-300 border-2 border-gray-900"
               >
                 Read the Paper

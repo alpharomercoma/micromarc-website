@@ -9,7 +9,7 @@ const teamMembers = [
   // },
   {
     name: "Alpha Romer Coma",
-    role: "ML Engineer",
+    role: "Machine Learning Engineer",
     image: "/coma.jpg",
     bio: "Specializing in Multi-Modal Deep Learning",
   },
@@ -38,7 +38,7 @@ export default function TeamMembers() {
     <section id="team" className="py-16 bg-gray-100">
       <div className="container mx-auto px-6">
         <h2 className="text-3xl font-bold mb-12 text-center text-gray-900">The MicroMarc Team</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {teamMembers.map((member, index) => (
             <div key={index} className="bg-white p-6 rounded-lg shadow-md text-center hover:shadow-lg transition-shadow duration-300">
               <Image
